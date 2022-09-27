@@ -6,6 +6,6 @@ Sample pre-commit hook that can be used to validate API Connect product yaml bef
 
     repos:
     -   repo: https://github.com/ibm-apiconnect/pre-commit
-        rev: 'main'
+        rev: '91c236c'
         hooks:
         -   id: validate-product
