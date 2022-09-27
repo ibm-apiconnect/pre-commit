@@ -1,9 +1,20 @@
 #!/bin/bash
+WHITE='\033[0;33m'
+RESET='\033[0m'
+RC=0
 for filename in $@
 do
   grep "product:" $filename > /dev/null
   if [[ $? == 0 ]]; 
   then
-    apic --accept-license --live-help validate $filename
+    echo -e "${WHITE}Validating $filename${RESET}"
+    tmp=$(mktemp)
+    apic --accept-license --live-help validate $filename | tee $tmp
+    grep Error $tmp > /dev/null
+    if [[ $? == 0 ]];
+    then
+      RC=2
+    fi
   fi
 done
+exit $RC
