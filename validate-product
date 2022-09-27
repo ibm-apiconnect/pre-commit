@@ -1,3 +1,9 @@
 #!/bin/bash
-
-apic --accept-license --live-help validate *.yaml
+for filename in $@
+do
+  grep "product:" $filename > /dev/null
+  if [[ $? == 0 ]]; 
+  then
+    apic --accept-license --live-help validate $filename
+  fi
+done
