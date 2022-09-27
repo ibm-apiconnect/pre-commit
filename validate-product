@@ -1,0 +1,3 @@
+#!/bin/bash
+
+apic --accept-license --live-help validate *.yaml

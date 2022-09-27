@@ -1,7 +1,7 @@
 -   id: validate-product
     name: Validate API Connect Product YAML
     description: This uses the API Connect toolkit to validate product yaml in the repo.
-    entry: validate-product
-    language: shell
+    entry: ./validate-product
+    language: script
     types: [yaml]
 
